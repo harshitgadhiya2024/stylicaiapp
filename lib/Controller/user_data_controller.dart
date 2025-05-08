@@ -54,7 +54,7 @@ class UserDataController extends GetxController {
     isLoading.value = true;
     try {
       final url = Uri.parse('https://backendapp.stylic.ai/stylic/get-user-data');
-
+      await GlobleVariables.loadSavedUserId();
       final Map<String, dynamic> data = {
         "user_id": GlobleVariables.userId,
       };

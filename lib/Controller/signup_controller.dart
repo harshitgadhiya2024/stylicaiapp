@@ -62,8 +62,9 @@ class SignupController extends GetxController {
         GlobleVariables.userId = jsonData["data"]["user_id"].toString();
         print("GlobalVariables.regId :- ${GlobleVariables.userId}");
         SharedPreferences prefs = await SharedPreferences.getInstance();
-        // await prefs.setBool('isLoggedIn', true);
-        await prefs.setString('userId', GlobleVariables.userId);
+        // Always save the user ID for session persistence
+        await prefs.setBool('isLoggedIn', true);
+        await prefs.setString('userId', jsonData["data"]["user_id"].toString());
         return {
           'user_id': user_id,
           'status': status,

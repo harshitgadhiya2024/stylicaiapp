@@ -13,6 +13,7 @@ class CheckLimitController extends GetxController {
   }) async {
 
     try {
+      await GlobleVariables.loadSavedUserId();
       final url = Uri.parse('https://backendapp.stylic.ai/stylic/check_limit');
 
       final Map<String, dynamic> data = {

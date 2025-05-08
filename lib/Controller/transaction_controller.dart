@@ -2,6 +2,7 @@
 import 'package:get/get.dart';
 
 import '../Model/transaction_model.dart';
+import '../Utills/globle_variable.dart';
 import '../Utills/transaction_service.dart';
 
 class TransactionController extends GetxController {
@@ -12,8 +13,11 @@ class TransactionController extends GetxController {
   var errorMessage = ''.obs;
   var timestamp = ''.obs;
 
-  Future<void> fetchTransactionHistory(String userId) async {
+  Future<void> fetchTransactionHistory() async {
     try {
+      await GlobleVariables.loadSavedUserId();
+      final userId = GlobleVariables.userId;
+
       isLoading(true);
       errorMessage('');
 

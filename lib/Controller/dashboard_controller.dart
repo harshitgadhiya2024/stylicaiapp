@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 
 import '../Model/dashboard_model.dart';
 import '../Utills/dashboard_service.dart';
+import '../Utills/globle_variable.dart';
 
 class DashboardController extends GetxController {
   final DashboardService _dashboardService = DashboardService();
@@ -28,7 +29,9 @@ class DashboardController extends GetxController {
     // fetchDashboardData('d7669a67-5ed9-4577-bee5-912966ebf3ec');
   }
 
-  Future<void> fetchDashboardData(String userId) async {
+  Future<void> fetchDashboardData() async {
+    await GlobleVariables.loadSavedUserId();
+    final String userId = GlobleVariables.userId;
     isLoading.value = true;
     hasError.value = false;
     errorMessage.value = '';
@@ -45,6 +48,6 @@ class DashboardController extends GetxController {
   }
 
   void refreshDashboard(String userId) {
-    fetchDashboardData(userId);
+    fetchDashboardData();
   }
 }

@@ -31,9 +31,11 @@ class LoginController extends GetxController {
           GlobleVariables.userId = responseData["data"]["user_id"].toString();
           print("GlobalVariables.regId :- ${GlobleVariables.userId}");
           SharedPreferences prefs = await SharedPreferences.getInstance();
+          await prefs.setBool('isLoggedIn', true);
+          await prefs.setString('userId', responseData["data"]["user_id"].toString());
           if (remember_me) {
             await prefs.setBool('isLoggedIn', true);
-            await prefs.setString('userId', GlobleVariables.userId);
+            await prefs.setString('userId', responseData["data"]["user_id"].toString());
           }
           Navigator.of(context).pushAndRemoveUntil(
             MaterialPageRoute(builder: (context) => BottomNavigationBarScreen()),

@@ -25,6 +25,7 @@ class _BuyMoreCoinScreenState extends State<BuyMoreCoinScreen> {
 
   void requestbuymorecoin() async {
     print("coming in here");
+    await GlobleVariables.loadSavedUserId();
     var result = await buymoreController.requestacoin(user_id: GlobleVariables.userId, username: userNameController.text.toString(), email: emailController.text.toString(), phonenumber: phoneNumberController.text.toString());
     if (result["status"] == 200) {
       print("Result: $result");

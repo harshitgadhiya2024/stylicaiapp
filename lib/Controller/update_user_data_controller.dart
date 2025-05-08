@@ -19,6 +19,7 @@ class UpdateUserDataController extends GetxController {
 
   }) async {
     try {
+      await GlobleVariables.loadSavedUserId();
       final url = Uri.parse(
         'https://backendapp.stylic.ai/stylic/update-user-data',
       );

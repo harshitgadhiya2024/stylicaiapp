@@ -25,6 +25,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
   bool confirmPassword = true;
 
   void changepassword() async {
+    await GlobleVariables.loadSavedUserId();
     var result = await resetPasswordController.resetData(newPassword: newpasswordController.text, confirmPassword: confirmnNewPasswordController.text, user_id: GlobleVariables.userId);
     if (result["status"] == 200) {
       print("Result: $result");

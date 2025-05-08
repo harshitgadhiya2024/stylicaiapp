@@ -12,10 +12,9 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final DashboardController controller = Get.put(DashboardController());
-    final userId = GlobleVariables.userId;
     // Fetch data when screen is built
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      controller.fetchDashboardData(userId);
+      controller.fetchDashboardData();
     });
 
     return Scaffold(
@@ -35,7 +34,7 @@ class DashboardScreen extends StatelessWidget {
                 Text('Error: ${controller.errorMessage.value}'),
                 const SizedBox(height: 16),
                 ElevatedButton(
-                  onPressed: () => controller.fetchDashboardData(userId),
+                  onPressed: () => controller.fetchDashboardData(),
                   child: const Text('Try Again'),
                 ),
               ],
@@ -50,7 +49,7 @@ class DashboardScreen extends StatelessWidget {
         final data = controller.dashboardData.value!;
 
         return RefreshIndicator(
-          onRefresh: () => controller.fetchDashboardData(userId),
+          onRefresh: () => controller.fetchDashboardData(),
           child: SingleChildScrollView(
             physics: const AlwaysScrollableScrollPhysics(),
             child: Padding(

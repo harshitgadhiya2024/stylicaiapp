@@ -43,7 +43,7 @@ class _PhotoshootTypeScreenState extends State<PhotoshootTypeScreen> {
                 SizedBox(height:  10,),
                 Divider(thickness: 1,),
                 Container(
-                  height: 600,
+                  height: 500,
                   child: ListView.builder(
                     itemCount: photoshootTypes.length,
                     // separatorBuilder: (context, index) {

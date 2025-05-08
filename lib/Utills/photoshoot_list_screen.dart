@@ -38,6 +38,7 @@ class _PhotoshootListScreenState extends State<PhotoshootListScreen> {
     });
 
     try {
+      await GlobleVariables.loadSavedUserId();
       // Replace with actual user ID or retrieve it from secure storage
       final userId = GlobleVariables.userId;
       final photoshoots = await _service.getAllPhotoshoots(userId);

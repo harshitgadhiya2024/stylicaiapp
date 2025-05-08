@@ -11,6 +11,7 @@ class UserVerificationController extends GetxController{
   var isLoading = true.obs;
 
   Future<void> checkVerification() async{
+    await GlobleVariables.loadSavedUserId();
     print("api calling: ${GlobleVariables.userId}");
     try{
 

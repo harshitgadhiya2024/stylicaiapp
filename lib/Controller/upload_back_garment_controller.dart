@@ -21,6 +21,7 @@ class UploadBackGarmentController {
 
   Future<bool> submitbackimages() async {
     try {
+      await GlobleVariables.loadSavedUserId();
       var request = http.MultipartRequest(
         'POST',
         Uri.parse('https://backendapp.stylic.ai/stylic/upload_back_garment?user_id=${GlobleVariables.userId}&photoshoot_id=${photoshootId}'),

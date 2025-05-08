@@ -20,7 +20,7 @@ class _TransactionHistoryScreenState extends State<TransactionHistoryScreen> {
   @override
   void initState() {
     super.initState();
-    controller.fetchTransactionHistory(userId);
+    controller.fetchTransactionHistory();
   }
 
   @override
@@ -44,7 +44,7 @@ class _TransactionHistoryScreenState extends State<TransactionHistoryScreen> {
                 ),
                 const SizedBox(height: 16),
                 ElevatedButton(
-                  onPressed: () => controller.fetchTransactionHistory(userId),
+                  onPressed: () => controller.fetchTransactionHistory(),
                   child: const Text('Try Again'),
                 ),
               ],

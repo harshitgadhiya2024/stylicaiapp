@@ -57,6 +57,7 @@ class GarmentController {
 
   Future<bool> submitGarmentData() async {
     try {
+      await GlobleVariables.loadSavedUserId();
       var request = http.MultipartRequest(
         'POST',
         Uri.parse('https://backendapp.stylic.ai/stylic/create-photoshoot?user_id=${GlobleVariables.userId}'),

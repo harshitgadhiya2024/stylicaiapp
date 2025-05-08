@@ -14,7 +14,8 @@ class ProfileController extends GetxController {
   Future<void> uploadProfilePhoto(File image) async {
     isLoading.value = true;
     String url = "https://stylicai.stylic.ai/upload-profile-photo";
-      print("upload pic: $image");
+    print("upload pic: $image");
+    await GlobleVariables.loadSavedUserId();
     try {
       var request = http.MultipartRequest('POST', Uri.parse('https://stylicai.stylic.ai/upload-profile-photo'));
       request.fields.addAll({
